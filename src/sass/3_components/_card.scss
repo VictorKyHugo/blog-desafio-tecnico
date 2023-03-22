@@ -1,0 +1,126 @@
+.card {
+  display: inline-flex;
+  background-color: white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  box-shadow: 1px 10px 5px -7px rgba(0, 0, 0, 0.054);
+
+  &__thumbnail {
+    margin: 0.4rem;
+    margin-right: 0.7rem;
+    border-radius: 1rem;
+    align-self: center;
+    min-width: 200px;
+    max-width: 150px;
+    height: 120px;
+  }
+
+  &__info {
+    word-wrap: normal;
+    color: $gray-600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__title {
+      margin: 0.5rem 0 0.5rem 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    &__content {
+      display: -webkit-box;
+      max-width: 95%;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0.5rem 1rem 0;
+
+      &__author {
+        display: flex;
+        align-items: center;
+
+        &__profile-picture {
+          border-radius: 100%;
+          margin-right: 0.5rem;
+        }
+      }
+
+      &__read-more {
+        border: none;
+        background: none;
+        font-family: 'Poppins', sans-serif;
+        color: $purple-300;
+        padding: 0.3rem;
+        border: 2px solid $purple-300;
+        border-radius: 5px;
+        font-size: 0.875rem;
+        margin-right: 0.5rem;
+
+        &:hover {
+          background-color: $purple-500;
+          font-weight: bold;
+          color: white;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__thumbnail {
+      display: none;
+    }
+
+    &__info {
+      &__content {
+        -webkit-line-clamp: 1;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    border-radius: 0 1rem 1rem 0;
+    font-size: 0.875rem;
+
+    &::before {
+      content: '';
+      min-width: 0.3rem;
+      border-radius: 1rem 0 0 1rem;
+      background-color: $purple-300;
+    }
+
+    &__thumbnail {
+      min-width: 150px;
+      max-width: 100px;
+      height: 100px;
+    }
+
+    &__info {
+      margin-left: 1rem;
+
+      &__footer {
+        flex-direction: row-reverse;
+
+        &__read-more {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1700px) {
+    font-size: 0.875rem;
+
+    &__info {
+      &__footer {
+        &__read-more {
+          font-size: small;
+        }
+      }
+    }
+  }
+}

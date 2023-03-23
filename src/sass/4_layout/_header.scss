@@ -1,0 +1,29 @@
+.header {
+  height: 4rem;
+  display: flex;
+
+  &__logo {
+    font-size: 2rem;
+    display: inline-block;
+    font-weight: 400;
+    margin-left: 3rem;
+    padding: 0.5rem;
+    font-family: 'Architects Daughter', cursive;
+    color: $purple-300;
+    cursor: pointer;
+  }
+
+  &__hr {
+    background: rgba(0, 0, 0, 0.161);
+    height: 1px;
+    margin: 0 2rem;
+  }
+
+  @media (max-width: 600px) {
+    justify-content: center;
+
+    &__logo {
+      margin-left: 0;
+    }
+  }
+}

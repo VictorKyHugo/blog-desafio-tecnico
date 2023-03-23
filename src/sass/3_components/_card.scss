@@ -3,7 +3,8 @@
   background-color: white;
   border-radius: 1rem;
   font-size: 1rem;
-  box-shadow: 1px 10px 5px -7px rgba(0, 0, 0, 0.054);
+  box-shadow: 1px 10px 5px -7px rgba(0, 0, 0, 0.053);
+  pointer-events: none;
 
   &__thumbnail {
     margin: 0.4rem;
@@ -13,7 +14,6 @@
     min-width: 200px;
     max-width: 150px;
     height: 120px;
-    pointer-events: none;
   }
 
   &__wrapper {
@@ -23,14 +23,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      pointer-events: none;
 
       &__title {
         margin: 0.5rem 0 0.5rem 0;
         width: fit-content;
         font-family: 'Poppins', sans-serif;
-        pointer-events: all;
         cursor: pointer;
+        pointer-events: all;
       }
 
       &__content {
@@ -52,19 +51,18 @@
         align-items: center;
         cursor: pointer;
 
-        &__profile-picture {
-          width: 32px;
-          height: 32px;
+        &__name {
+          margin: 0 0.5rem;
+        }
 
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        &__profile-picture {
+          min-width: 32px;
+          min-height: 32px;
+
+          max-width: 32px;
+          max-height: 32px;
 
           border-radius: 100%;
-          margin-right: 0.5rem;
-          background-color: $purple-300;
-          color: white;
-          font-weight: bold;
         }
       }
 
@@ -78,11 +76,16 @@
         border-radius: 5px;
         font-size: 0.875rem;
         margin-right: 0.5rem;
+        pointer-events: all;
 
         &:hover {
           background-color: $purple-500;
           font-weight: bold;
           color: white;
+        }
+
+        &:active {
+          box-shadow: inset 0px -1px 20px 0px rgba(0, 0, 0, 0.75);
         }
       }
     }
@@ -102,9 +105,11 @@
     }
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1000px) {
     border-radius: 0 1rem 1rem 0;
     font-size: 0.875rem;
+    pointer-events: all;
+    cursor: pointer;
 
     &::before {
       content: '';
@@ -117,18 +122,21 @@
       min-width: 150px;
       max-width: 100px;
       height: 100px;
-      pointer-events: all;
-      cursor: pointer;
     }
 
     &__wrapper {
       &__info {
         margin-left: 1rem;
-        pointer-events: all;
-        cursor: pointer;
       }
       &__footer {
-        flex-direction: row-reverse;
+        justify-content: flex-end;
+        &__author {
+          flex-direction: row-reverse;
+
+          &__profile-picture {
+            margin-left: 0.5rem;
+          }
+        }
 
         &__read-more {
           display: none;

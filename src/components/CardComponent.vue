@@ -29,7 +29,7 @@ defineProps<{
   author: string;
 }>();
 
-const emit = defineEmits(['onAuthorClick', 'onReadMore']);
+const emit = defineEmits(['onReadMore']);
 
 const handleReadMore = () => {
   emit('onReadMore');

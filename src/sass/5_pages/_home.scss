@@ -1,0 +1,31 @@
+.home {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 2rem;
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    &__card {
+      margin: 1rem;
+      max-width: 55rem;
+    }
+  }
+
+  &__paginate {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex: 1;
+    margin: 1rem 0 3rem 0;
+  }
+
+  @media (max-width: 930px) {
+    &__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+}

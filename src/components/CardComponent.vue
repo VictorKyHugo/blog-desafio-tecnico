@@ -1,6 +1,6 @@
 <template>
   <div @click="handleReadMore" data-test="card" class="card">
-    <img class="card__thumbnail" src="https://picsum.photos/400/200?random=34" />
+    <img class="card__thumbnail" :src="`https://picsum.photos/seed/${postId}/400/200`" />
     <div class="card__wrapper">
       <div class="card__wrapper__info">
         <h4 class="card__wrapper__info__title">
@@ -14,7 +14,7 @@
         <div class="card__wrapper__footer__author">
           <img
             class="card__wrapper__footer__author__profile-picture"
-            src="https://randomuser.me/api/portraits/thumb/women/12.jpg"
+            :src="`https://randomuser.me/api/portraits/thumb/women/${authorId}.jpg`"
           />
           <span class="card__wrapper__footer__author__name">{{ author }}</span>
         </div>
@@ -27,6 +27,8 @@
 <script setup lang="ts">
 defineProps<{
   author: string;
+  authorId: number;
+  postId: number;
 }>();
 
 const emit = defineEmits(['onReadMore']);

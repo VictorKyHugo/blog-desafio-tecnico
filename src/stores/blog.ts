@@ -35,7 +35,7 @@ export const useBlogStore = defineStore('blog', () => {
     return name;
   };
 
-  function fetchBlogData(): void {
+  const fetchBlogData = (): void => {
     BlogService.fetchBlogData()
       .then((data) => {
         posts.value = data.posts;
@@ -44,9 +44,16 @@ export const useBlogStore = defineStore('blog', () => {
       .catch((err) => {
         throw new Error(err);
       });
-  }
+  };
 
-  function fetchPostComments(postId: number): void {
+  const postsToRender = (itemsPerPage: number, currentPage: number) => {
+    const pageFirstItemIndex = itemsPerPage * currentPage - itemsPerPage;
+    const pageLastItemIndex = itemsPerPage * currentPage;
+
+    return posts.value.slice(pageFirstItemIndex, pageLastItemIndex);
+  };
+
+  const fetchPostComments = (postId: number): void => {
     BlogService.fetchPostComments(postId)
       .then((data) => {
         comments.value = data.comments;
@@ -54,7 +61,15 @@ export const useBlogStore = defineStore('blog', () => {
       .catch((err) => {
         throw new Error(err);
       });
-  }
+  };
 
-  return { fetchBlogData, fetchPostComments, getUserNameById, posts, users, comments };
+  return {
+    fetchBlogData,
+    fetchPostComments,
+    postsToRender,
+    getUserNameById,
+    posts,
+    users,
+    comments
+  };
 });

@@ -17,6 +17,7 @@
     "pinia": "^2.0.32",
     "sass": "^1.59.3",
     "vue": "^3.2.47",
+    "vue-awesome-paginate": "^1.1.46",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

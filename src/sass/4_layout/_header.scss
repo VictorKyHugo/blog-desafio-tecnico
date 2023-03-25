@@ -1,12 +1,20 @@
 .header {
   height: 4rem;
+  position: relative;
   display: flex;
+
+  &__back-icon {
+    position: absolute;
+    left: 0.5rem;
+    bottom: 1.15rem;
+    width: 2rem;
+  }
 
   &__logo {
     font-size: 2rem;
     display: inline-block;
     font-weight: 400;
-    margin-left: 3rem;
+    margin-left: 4rem;
     padding: 0.5rem;
     font-family: 'Architects Daughter', cursive;
     color: $purple-300;

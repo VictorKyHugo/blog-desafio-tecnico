@@ -14,6 +14,7 @@ interface IUsers {
   name: string;
   username: string;
   email: string;
+  phone: string;
 }
 
 interface IPostComments {
@@ -35,8 +36,8 @@ export const useBlogStore = defineStore('blog', () => {
     return name;
   };
 
-  const fetchBlogData = (): void => {
-    BlogService.fetchBlogData()
+  const fetchBlogData = () => {
+    return BlogService.fetchBlogData()
       .then((data) => {
         posts.value = data.posts;
         users.value = data.users;
@@ -46,15 +47,15 @@ export const useBlogStore = defineStore('blog', () => {
       });
   };
 
-  const postsToRender = (itemsPerPage: number, currentPage: number) => {
+  const getPostsToRender = (itemsPerPage: number, currentPage: number) => {
     const pageFirstItemIndex = itemsPerPage * currentPage - itemsPerPage;
     const pageLastItemIndex = itemsPerPage * currentPage;
 
     return posts.value.slice(pageFirstItemIndex, pageLastItemIndex);
   };
 
-  const fetchPostComments = (postId: number): void => {
-    BlogService.fetchPostComments(postId)
+  const fetchPostComments = (postId: number | string) => {
+    return BlogService.fetchPostComments(postId)
       .then((data) => {
         comments.value = data.comments;
       })
@@ -66,7 +67,7 @@ export const useBlogStore = defineStore('blog', () => {
   return {
     fetchBlogData,
     fetchPostComments,
-    postsToRender,
+    getPostsToRender,
     getUserNameById,
     posts,
     users,

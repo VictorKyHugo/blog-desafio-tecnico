@@ -7,7 +7,9 @@ describe('Card', () => {
   it('should emit onReadMore when clicked', async () => {
     const wrapper = mount(Card, {
       props: {
-        author: 'Nome Pessoa'
+        author: 'Nome Pessoa',
+        authorId: 1,
+        postId: 1
       }
     });
 

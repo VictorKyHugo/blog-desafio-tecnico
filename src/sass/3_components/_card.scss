@@ -57,10 +57,7 @@
 
         &__profile-picture {
           min-width: 32px;
-          min-height: 32px;
-
           max-width: 32px;
-          max-height: 32px;
 
           border-radius: 100%;
         }
@@ -90,7 +87,6 @@
       }
     }
   }
-
   @media (max-width: 600px) {
     &__thumbnail {
       display: none;
@@ -147,6 +143,45 @@
       &__footer {
         &__read-more {
           font-size: small;
+        }
+      }
+    }
+  }
+}
+
+.isCompact {
+  &:hover {
+    box-shadow: 2px 2px 5px 2px rgba(130, 0, 177, 0.12);
+  }
+  font-size: 0.875rem;
+  pointer-events: all;
+  cursor: pointer;
+
+  .card {
+    &__thumbnail {
+      display: none;
+    }
+
+    &__wrapper {
+      &__info {
+        margin-left: 1rem;
+
+        &__content {
+          -webkit-line-clamp: 1;
+        }
+      }
+      &__footer {
+        justify-content: flex-end;
+        &__author {
+          flex-direction: row-reverse;
+
+          &__profile-picture {
+            margin-left: 0.5rem;
+          }
+        }
+
+        &__read-more {
+          display: none;
         }
       }
     }

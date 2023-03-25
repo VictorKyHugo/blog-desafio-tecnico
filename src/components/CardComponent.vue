@@ -1,5 +1,5 @@
 <template>
-  <div @click="handleReadMore" data-test="card" class="card">
+  <div @click="handleReadMore" data-test="card" :class="['card', { isCompact: isCompact }]">
     <img class="card__thumbnail" :src="`https://picsum.photos/seed/${postId}/400/200`" />
     <div class="card__wrapper">
       <div class="card__wrapper__info">
@@ -14,7 +14,7 @@
         <div class="card__wrapper__footer__author">
           <img
             class="card__wrapper__footer__author__profile-picture"
-            :src="`https://randomuser.me/api/portraits/thumb/women/${authorId}.jpg`"
+            :src="`https://randomuser.me/api/portraits/women/${authorId}.jpg`"
           />
           <span class="card__wrapper__footer__author__name">{{ author }}</span>
         </div>
@@ -29,6 +29,7 @@ defineProps<{
   author: string;
   authorId: number;
   postId: number;
+  isCompact?: boolean;
 }>();
 
 const emit = defineEmits(['onReadMore']);

@@ -3,12 +3,13 @@
     <Header />
     <div class="home__cards">
       <Card
+        v-for="post in getPostsToRender(itemsPerPage, currentPage)"
         class="home__cards__card"
-        v-for="post in postsToRender(itemsPerPage, currentPage)"
         :author="getUserNameById(post.userId)"
         :author-id="post.userId"
         :post-id="post.id"
         :key="post.id"
+        @on-read-more="() => handleReadMore(post.id)"
       >
         <template #title>
           {{ post.title }}
@@ -34,16 +35,17 @@
 import { ref } from 'vue';
 import { useBlogStore } from '@/stores/blog';
 import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
 
 import Card from '../components/CardComponent.vue';
 import Header from '../components/HeaderComponent.vue';
 
 // Store
 const store = useBlogStore();
-const { getUserNameById, postsToRender, fetchBlogData } = store;
+const { getUserNameById, getPostsToRender, fetchBlogData } = store;
 const { posts } = storeToRefs(store);
 
-fetchBlogData();
+await fetchBlogData();
 
 // Paginate
 const currentPage = ref(1);
@@ -51,5 +53,13 @@ const itemsPerPage = ref(8);
 
 const onClickHandler = (page: number) => {
   currentPage.value = page;
+};
+
+// Router
+
+const router = useRouter();
+
+const handleReadMore = (id: number) => {
+  router.push(`/post/${id}`);
 };
 </script>

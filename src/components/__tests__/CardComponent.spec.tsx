@@ -18,4 +18,34 @@ describe('Card', () => {
 
     expect(wrapper.emitted('onReadMore')).toBeTruthy();
   });
+
+  it('should have isCompact class if isCompact prop is true', async () => {
+    const wrapper = mount(Card, {
+      props: {
+        author: 'Nome Pessoa',
+        authorId: 1,
+        postId: 1,
+        isCompact: true
+      }
+    });
+
+    const cardWrapper = wrapper.find('[data-test="card"]');
+
+    expect(cardWrapper.classes()).toContain('isCompact');
+  });
+
+  it('should NOT have isCompact class if isCompact prop is true', async () => {
+    const wrapper = mount(Card, {
+      props: {
+        author: 'Nome Pessoa',
+        authorId: 1,
+        postId: 1,
+        isCompact: false
+      }
+    });
+
+    const cardWrapper = wrapper.find('[data-test="card"]');
+
+    expect(cardWrapper.classes()).not.toContain('isCompact');
+  });
 });

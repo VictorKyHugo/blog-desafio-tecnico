@@ -1,10 +1,10 @@
 <template>
   <Suspense>
-    <template #default>
-      <router-view></router-view>
-    </template>
-    <template #fallback> Loading </template>
+    <router-view :key="route.fullPath"></router-view>
   </Suspense>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from 'vue-router';
+const route = useRoute();
+</script>

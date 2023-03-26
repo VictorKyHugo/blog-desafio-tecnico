@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <div class="post-view">
       <div class="post-view__content">
         <h1 class="post-view__content__title">{{ post.title }} ?</h1>
@@ -59,9 +58,8 @@
 import { useBlogStore } from '@/stores/blog';
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
-import Header from '../../components/HeaderComponent.vue';
 import PostViewAuthor from './PostViewAuthor.vue';
 import PostViewComments from './PostViewComments.vue';
 
@@ -75,10 +73,8 @@ const store = useBlogStore();
 const { fetchBlogData, fetchPostComments, getPostsFromUserById } = store;
 const { posts, users, comments } = storeToRefs(store);
 
-onMounted(async () => {
-  await fetchBlogData();
-  await fetchPostComments(routeId.value);
-});
+await fetchBlogData();
+await fetchPostComments(routeId.value);
 
 const post = posts.value.filter((post) => post.id === parseInt(routeId.value))[0];
 const user = users.value.filter((user) => user.id === post.userId)[0];

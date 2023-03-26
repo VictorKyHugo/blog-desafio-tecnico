@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Header />
     <div class="home__cards">
       <Card
         v-for="post in getPostsToRender(itemsPerPage, currentPage)"
@@ -38,7 +37,6 @@ import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 
 import Card from '../../components/CardComponent.vue';
-import Header from '../../components/HeaderComponent.vue';
 
 // Store
 const store = useBlogStore();

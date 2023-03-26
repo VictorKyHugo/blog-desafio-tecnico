@@ -1,6 +1,6 @@
 .home {
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - 4.63rem);
   flex-direction: column;
   justify-content: flex-start;
   margin: 0 2rem;

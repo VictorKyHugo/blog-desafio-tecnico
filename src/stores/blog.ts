@@ -14,6 +14,7 @@ interface IUsers {
   name: string;
   username: string;
   email: string;
+  phone: string;
 }
 
 interface IPostComments {
@@ -28,15 +29,10 @@ export const useBlogStore = defineStore('blog', () => {
   const posts = ref<IPosts[]>([]);
   const users = ref<IUsers[]>([]);
   const comments = ref<IPostComments[]>([]);
+  const currentPaginatePage = ref<number>(1);
 
-  const getUserNameById = (id: number): string => {
-    const [{ name }] = users.value.filter((user) => user.id === id);
-
-    return name;
-  };
-
-  const fetchBlogData = (): void => {
-    BlogService.fetchBlogData()
+  const fetchBlogData = async () => {
+    return BlogService.fetchBlogData()
       .then((data) => {
         posts.value = data.posts;
         users.value = data.users;
@@ -46,15 +42,8 @@ export const useBlogStore = defineStore('blog', () => {
       });
   };
 
-  const postsToRender = (itemsPerPage: number, currentPage: number) => {
-    const pageFirstItemIndex = itemsPerPage * currentPage - itemsPerPage;
-    const pageLastItemIndex = itemsPerPage * currentPage;
-
-    return posts.value.slice(pageFirstItemIndex, pageLastItemIndex);
-  };
-
-  const fetchPostComments = (postId: number): void => {
-    BlogService.fetchPostComments(postId)
+  const fetchPostComments = async (postId: number | string) => {
+    return BlogService.fetchPostComments(postId)
       .then((data) => {
         comments.value = data.comments;
       })
@@ -63,13 +52,44 @@ export const useBlogStore = defineStore('blog', () => {
       });
   };
 
+  const getPostsFromUserById = (userId: number, quantity?: number, excludePostId?: number) => {
+    let userPosts = [];
+
+    userPosts = posts.value.filter((post) => post.userId === userId);
+
+    if (excludePostId) {
+      userPosts = userPosts.filter((post) => post.id !== excludePostId);
+    }
+
+    if (quantity) {
+      userPosts = userPosts.slice(0, quantity);
+    }
+
+    return userPosts;
+  };
+
+  const getPostsToRender = (itemsPerPage: number, currentPage: number) => {
+    const pageFirstItemIndex = itemsPerPage * currentPage - itemsPerPage;
+    const pageLastItemIndex = itemsPerPage * currentPage;
+
+    return posts.value.slice(pageFirstItemIndex, pageLastItemIndex);
+  };
+
+  const getUserNameById = (id: number): string => {
+    const [{ name }] = users.value.filter((user) => user.id === id);
+
+    return name;
+  };
+
   return {
     fetchBlogData,
     fetchPostComments,
-    postsToRender,
+    getPostsToRender,
     getUserNameById,
+    getPostsFromUserById,
     posts,
     users,
-    comments
+    comments,
+    currentPaginatePage
   };
 });

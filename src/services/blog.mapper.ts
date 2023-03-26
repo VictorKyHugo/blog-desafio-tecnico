@@ -45,11 +45,12 @@ export const mapBlog = ({ users, posts }: { users: Array<IUserData>; posts: Arra
       title,
       content: body
     })),
-    users: users.map(({ id, name, username, email }) => ({
+    users: users.map(({ id, name, username, email, phone }) => ({
       id,
       name,
       username,
-      email
+      email,
+      phone
     }))
   };
 };

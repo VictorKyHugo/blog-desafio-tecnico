@@ -16,7 +16,7 @@ export const fetchBlogData = () =>
     })
   );
 
-export const fetchPostComments = (postId: number) =>
+export const fetchPostComments = (postId: number | string) =>
   axios
     .get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
     .then((response) => mapPostComments(response.data));

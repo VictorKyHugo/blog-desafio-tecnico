@@ -1,0 +1,109 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Blog Store > should get 1 post excluding the first one by it's id 1`] = `
+[MockFunction spy] {
+  "calls": [
+    [
+      1,
+      1,
+      1,
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": [
+        {
+          "content": "Content",
+          "id": 3,
+          "title": "Title",
+          "userId": 1,
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Blog Store > should get 1 post from user 1`] = `
+[MockFunction spy] {
+  "calls": [
+    [
+      2,
+      1,
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": [
+        {
+          "content": "Content",
+          "id": 2,
+          "title": "Title",
+          "userId": 2,
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Blog Store > should get a quantity of post to render, according to currentPage and return the posts 1`] = `
+[MockFunction spy] {
+  "calls": [
+    [
+      2,
+      2,
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": [
+        {
+          "content": "Content",
+          "id": 3,
+          "title": "Title",
+          "userId": 1,
+        },
+        {
+          "content": "Content",
+          "id": 4,
+          "title": "Title",
+          "userId": 2,
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Blog Store > should get all posts from user 1`] = `
+[MockFunction spy] {
+  "calls": [
+    [
+      2,
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": [
+        {
+          "content": "Content",
+          "id": 2,
+          "title": "Title",
+          "userId": 2,
+        },
+        {
+          "content": "Content",
+          "id": 4,
+          "title": "Title",
+          "userId": 2,
+        },
+      ],
+    },
+  ],
+}
+`;

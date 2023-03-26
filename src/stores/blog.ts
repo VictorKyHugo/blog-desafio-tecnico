@@ -62,8 +62,7 @@ export const useBlogStore = defineStore('blog', () => {
     }
 
     if (quantity) {
-      // subtract 1 to match index
-      userPosts = userPosts.slice(0, 4);
+      userPosts = userPosts.slice(0, quantity);
     }
 
     return userPosts;

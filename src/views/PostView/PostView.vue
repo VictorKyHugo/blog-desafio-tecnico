@@ -58,7 +58,7 @@
 import { useBlogStore } from '@/stores/blog';
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 import PostViewAuthor from './PostViewAuthor.vue';
 import PostViewComments from './PostViewComments.vue';
@@ -68,12 +68,16 @@ import PostViewComments from './PostViewComments.vue';
 const route = useRoute();
 const routeId = ref<string>(route.params.id as string);
 
-// Store
+//  Store
 const store = useBlogStore();
 const { fetchBlogData, fetchPostComments, getPostsFromUserById } = store;
 const { posts, users, comments } = storeToRefs(store);
 
-await fetchBlogData();
+const checkIfBlogHasData = computed(() => posts.value.length);
+if (!checkIfBlogHasData.value) {
+  await fetchBlogData();
+}
+
 await fetchPostComments(routeId.value);
 
 const post = posts.value.filter((post) => post.id === parseInt(routeId.value))[0];

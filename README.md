@@ -6,7 +6,7 @@ Para executar o projeto é necessário ter a versão LTS do node instalada
 npm install
 ```
 
-### Inicializar o Projeto localmente
+### Inicializar o projeto localmente
 
 ```sh
 npm run dev

@@ -1,6 +1,6 @@
 import { setActivePinia, createPinia } from 'pinia';
 import { useBlogStore } from '../blog';
-import { describe, beforeEach, it, expect, vi, type SpyInstance } from 'vitest';
+import { describe, beforeEach, it, expect, vi } from 'vitest';
 
 import * as BlogService from '../../services/blog.service';
 

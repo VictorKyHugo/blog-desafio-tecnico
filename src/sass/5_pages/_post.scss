@@ -130,6 +130,10 @@
       grid-area: content;
       align-items: center;
 
+      &__image {
+        width: 100%;
+      }
+
       &__title {
         margin-top: 0;
       }

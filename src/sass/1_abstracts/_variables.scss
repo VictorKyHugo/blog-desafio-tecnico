@@ -3,11 +3,6 @@ $black-300: #363636;
 $black: $black-500;
 $white: #fff;
 
-$orange-100: #fff3ec;
-$orange-300: #ff8e49;
-$orange-500: #fd6000;
-$orange-700: #d65100;
-
 $gray-100: #f5f5f5;
 $gray-200: #ededed;
 $gray-300: #d8d8d8;
@@ -15,93 +10,7 @@ $gray-400: #949596;
 $gray-500: #595959;
 $gray-600: #2e2e2e;
 
-$blue-100: #eff7ff;
-$blue-300: #798999;
-$blue-500: #45688c;
-$blue-700: #13274d;
-
-$red-100: #f68a7b;
-$red-300: #ff5d46;
-$red-500: #df513d;
-$red-700: #b84332;
-
-$green-100: #86e582;
-$green-300: #56ba52;
-$green-400: #0fa98d;
-$green-500: #80cf95;
-$green-700: #599957;
-
 $purple-100: #c473d4;
 $purple-300: #8c2f9e;
 $purple-500: #6a2478;
 $purple-700: #481852;
-
-$yellow-100: #fcdf96;
-$yellow-300: #fecf56;
-$yellow-500: #fbbb37;
-$yellow-700: #d49e2e;
-
-$red-warning: #e11111;
-$green-warning: #1a9c51;
-$yellow-warning: #edad0a;
-
-// $red-500: #e11111;
-// $green-500: #1a9c51;
-// $yellow-500: #edad0a;
-
-$primary-color: $orange-500;
-$secondary-color: $gray-500;
-$font: 'Roboto', sans-serif;
-$font-path: '/fonts';
-$header-height: 56px;
-$transition: all 0.5s ease-in-out;
-
-/* TODO PARA DESIGN: REDUZIR QUANTIDADE DE TAMANHOS DE FONTE */
-$font-smaller: 12px;
-$font-small: 14px;
-$font-medium: 16px;
-$font-big: 18px;
-$font-bigger: 20px;
-$font-biggest: 22px;
-$font-extra-big: 24px;
-$font-extra-biggest: 32px;
-
-$font-regular: 400;
-$font-semibold: 600;
-$font-bold: 700;
-
-$table-body-height: 250px;
-$table-header-height: 50px;
-$table-header-position: 0 0;
-$table-body-position: 0 $table-header-height;
-
-$gradient-orange: linear-gradient(to right, $orange-300 0%, $orange-500 100%);
-$gradient-orange-reverse: linear-gradient(to right, $orange-500 0%, $orange-300 100%);
-$gradient-orangeEffect: linear-gradient(
-  to right,
-  $orange-300 0%,
-  $orange-500 40%,
-  $orange-500 60%,
-  $orange-300 100%
-);
-
-$img-path: '/assets/img/';
-$icon-path: '/assets/icons/';
-$modal-small: 556px;
-$modal-medium: 722px;
-$modal-medium-big: 860px;
-$modal-big: 1200px;
-
-$btn-padding-small: 6px 22px;
-$btn-padding-medium: 10px 18px;
-$btn-padding-big: 12px 38px;
-
-$border-radius-small: 2px;
-$border-radius-medium: 4px;
-$border-radius-medium-secundary: 6px;
-$border-radius-big: 8px;
-$border-radius-rounded: 50%;
-
-$icon-medium: 16px;
-$container-width: 1280px;
-$z-index-header: 20;

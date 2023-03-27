@@ -132,7 +132,7 @@
       align-items: center;
 
       &__image {
-        width: 100%;
+        width: 70%;
       }
 
       &__title {
@@ -165,6 +165,14 @@
 
       &__more-posts {
         display: none;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    &__content {
+      &__image {
+        width: 100%;
       }
     }
   }
